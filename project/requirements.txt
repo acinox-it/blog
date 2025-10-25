@@ -1,0 +1,7 @@
+django
+whitnoise
+djangorestframework
+psycopg2-binary
+mysqlclient
+pytest-django
+pytest
