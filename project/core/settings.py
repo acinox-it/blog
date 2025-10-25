@@ -14,6 +14,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BLOG_TEMPLATE_DIR = BASE_DIR / "blog" / "templates"
+USERS_TEMPLATE_DIR = BASE_DIR / "users" / "templates"
+COMMENTS_TEMPLATE_DIR = BASE_DIR / "comments" / "templates"
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +40,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "whitenoise.runserver_nostatic",
+    # apps tierces
+    "rest_framework",
+    # mes apps
+    "blog",
+    "users",
+    "comments",
 ]
 
 MIDDLEWARE = [
@@ -47,6 +57,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -54,7 +65,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BLOG_TEMPLATE_DIR, USERS_TEMPLATE_DIR, COMMENTS_TEMPLATE_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
