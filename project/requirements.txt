@@ -1,5 +1,5 @@
 django
-whitnoise
+whitenoise
 djangorestframework
 psycopg2-binary
 mysqlclient
